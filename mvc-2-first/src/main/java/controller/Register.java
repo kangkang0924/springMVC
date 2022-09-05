@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author 韩德康~
  * @version 1.0
- * @time 2022/08/31/11:08
+ * @time 2022/09/05/9:09
  */
-public class HelloController implements Controller{
-
+public class Register implements Controller {
     @Override
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("hdk", "hello 韩德康");
-        modelAndView.setViewName("login");
+        modelAndView.addObject("hdk","haihaihai");
+        modelAndView.setViewName("register");
         return modelAndView;
     }
 }

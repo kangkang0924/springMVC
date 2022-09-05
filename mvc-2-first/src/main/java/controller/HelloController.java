@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * @version 1.0
  * @time 2022/08/31/11:08
  */
-public class HelloController  {
+public class HelloController implements Controller{
 
+    @Override
+    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("hdk", "this is ");
+        modelAndView.setViewName("result.jsp");
+        return null;
+    }
 }

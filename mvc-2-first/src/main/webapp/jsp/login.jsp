@@ -17,8 +17,8 @@
     密 码:<input type="password"><br>
 
     <input type="submit" value="登录">
-        已注册,请登录<a href="login.jsp">登录<a/>
-        未注册,请注册<a href="register.jsp">注册<a/>
+        已注册,请登录<a href="login">登录</a>
+        未注册,请注册<a href="register">注册</a>
 </form>
 </body>
 </html>

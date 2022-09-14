@@ -11,14 +11,14 @@
     <title>Title</title>
 </head>
 <body>
-<form>
+<form action="${pageContext.request.contextPath}/hello/varifyLogin">
     <%--    登陆界面--%>
     用户名:<input type="text"><br>
     密 码:<input type="password"><br>
 
     <input type="submit" value="登录">
-        已注册,请登录<a href="login">登录</a>
-        未注册,请注册<a href="register">注册</a>
+        已注册,请登录<a href="${pageContext.request.contextPath}/hello/login">登录</a>
+        未注册,请注册<a href="${pageContext.request.contextPath}/hello/register">注册</a>
 </form>
 </body>
 </html>

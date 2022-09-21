@@ -13,8 +13,8 @@
 <body>
 <form action="${pageContext.request.contextPath}/hello/varifyLogin">
     <%--    登陆界面--%>
-    用户名:<input type="text"><br>
-    密 码:<input type="password"><br>
+    用户名:<input type="text" name="username"><br>
+    密 码:<input type="password" name="password"><br>
 
     <input type="submit" value="登录">
         已注册,请登录<a href="${pageContext.request.contextPath}/hello/login">登录</a>

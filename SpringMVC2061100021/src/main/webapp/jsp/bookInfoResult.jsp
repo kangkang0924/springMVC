@@ -11,9 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-图书名称:${BookInfo.name} <br/>
-I S B N:${BookInfo.ISBN}<br/>
-作   者:${BookInfo.author}<br/>
+hello!${msg}
 <table>
     <tr>
         <td>图书编号:</td>

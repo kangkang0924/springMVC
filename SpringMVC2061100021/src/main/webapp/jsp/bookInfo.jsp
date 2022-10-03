@@ -11,12 +11,12 @@
     <title>图书添加页面</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/addBookInfo" method="post">
+<form action="${pageContext.request.contextPath}/Book/addBookInfo" method="post">
     <%--    图书名称:<input type="text" name="name"><br/>--%>
     <%--    ISBN:<input type="text" name="ISBN"><br/>--%>
     <%--    作者:<input type="text" name="author"><br/>--%>
     <%--    <input type="submit" value="提交">--%>
-        欢迎登录${hdk}
+        欢迎登录${msg}
     <table>
 
         <tr>

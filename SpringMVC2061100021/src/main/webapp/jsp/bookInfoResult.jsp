@@ -50,12 +50,12 @@ hello!${msg}
     </tr>
     <tr>
         <td>总库存:</td>
-        <td>${BookInfo.inventory}</td>
+        <td>${BookInfo.total}</td>
         <td></td>
     </tr>
     <tr>
         <td>出版社:</td>
-        <td>${BookInfo.press}</td>
+        <td>${BookInfo.pubName}</td>
         <td></td>
     </tr>
     <tr>

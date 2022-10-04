@@ -21,12 +21,12 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/Book")
 public class BookController {
     @PostMapping("/addBookInfo")
-    public String addBook(BookInfo bookInfo, Model model, HttpSession httpSession) {
+    public String addBook(BookInfo bookInfo, Model model) {
         //从session中取数据
-        httpSession.getAttribute("msg");
-        System.out.println(httpSession.getAttribute("msg"));
+
+        double price = (bookInfo.getPrice() * 0.8);
+        bookInfo.setPrice(price);
         model.addAttribute("BookInfo", bookInfo);
-        //return "redirect:/jsp/bookInfoResult.jsp";
         return "forward:/jsp/bookInfoResult.jsp";
     }
 

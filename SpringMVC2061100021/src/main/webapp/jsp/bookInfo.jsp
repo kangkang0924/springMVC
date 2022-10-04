@@ -20,54 +20,42 @@
     <table>
 
         <tr>
-            <td>图书编号:</td>
-            <td><input type="text" name="id"/><span style="color: red;">*</span></td>
-            <td></td>
+            <td><label for="id">图书编号:</label></td>
+            <td><input id="id" type="text" name="id" placeholder="请输入图书编号" /><br></td>
         </tr>
         <tr>
-            <td>图书名称:</td>
-            <td><input type="text" name="name"/><span style="color: red;">*</span></td>
-            <td></td>
+            <td><label for="name">图书名称:</label></td>
+            <td><input id="name" type="text" name="name" placeholder="请输入图书名称" /><br></td>
+        </tr>
+
+        <tr>
+            <td><label for="price">图书价格:</label></td>
+            <td><input id="price" type="text" name="price" placeholder="请输入图书价格" /><br></td>
+        </tr>
+
+        <tr>
+            <td><label for="total">总库存:</label></td>
+            <td><input id="total" type="radio" name="total" value="有" checked />有
+                <input type="radio" name="total" value="有">无
+            </td>
         </tr>
         <tr>
-            <td>图书类型:</td>
-            <td><input type="text" name="type"/><span style="color: red;">*</span></td>
-            <td></td>
+            <td><label for="pubName">出版社：</label></td>
+            <td>
+                <select name="pubName" id="pubName">
+                    <option disabled="disabled" value="">-请选择-</option>
+                    <option value="北京理工大学出版社">北京理工大学出版社</option>
+                    <option value="清华大学出版社">清华大学出版社</option>
+                    <option value="人民邮电出版社">人民邮电出版社</option>
+                </select></td>
         </tr>
+
+
         <tr>
-            <td>作者:</td>
-            <td><input type="text" name="author"/><span style="color: red;">*</span></td>
             <td></td>
-        </tr>
-        <tr>
-            <td>价格:</td>
-            <td><input type="text" name="price"/><span style="color: red;">*</span></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>ISBN:</td>
-            <td><input type="text" name="ISBN"/><span style="color: red;">*</span></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>现存量:</td>
-            <td><input type="text" name="newQuantity"/><span style="color: red;">*</span></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>总库存:</td>
-            <td><input type="text" name="inventory"/><span style="color: red;">*</span></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>出版社:</td>
-            <td><input type="text" name="press"/><span style="color: red;">*</span></td>
-            <td></td>
-        <tr>
-            <td>书架:</td>
-            <td><input type="text" name="bookshelf"/><span style="color: red;">*</span></td>
-            <td></td>
-        </tr>
+            <td><input type="submit" value="提交" />
+                <input type="reset" value="重置" /> <br>
+            </td>
         </tr>
         <tr>
             <td colspan="2">

@@ -11,10 +11,10 @@ public class BookInfo {
     private String author;
     private String id;
     private String type;
-    private String price;
+    private Double price;
     private String newQuantity;
-    private String inventory;
-    private String press;
+    private String total;
+    private String pubName;
     private String bookshelf;
 
     public String getName() {
@@ -57,11 +57,11 @@ public class BookInfo {
         this.type = type;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -73,20 +73,20 @@ public class BookInfo {
         this.newQuantity = newQuantity;
     }
 
-    public String getInventory() {
-        return inventory;
+    public String getTotal() {
+        return total;
     }
 
-    public void setInventory(String inventory) {
-        this.inventory = inventory;
+    public void setTotal(String total) {
+        this.total = total;
     }
 
-    public String getPress() {
-        return press;
+    public String getPubName() {
+        return pubName;
     }
 
-    public void setPress(String press) {
-        this.press = press;
+    public void setPubName(String pubName) {
+        this.pubName = pubName;
     }
 
     public String getBookshelf() {
@@ -107,8 +107,8 @@ public class BookInfo {
                 ", type='" + type + '\'' +
                 ", price=" + price +
                 ", newQuantity=" + newQuantity +
-                ", inventory=" + inventory +
-                ", press='" + press + '\'' +
+                ", total=" + total +
+                ", press='" + pubName + '\'' +
                 ", bookshelf='" + bookshelf + '\'' +
                 '}';
     }

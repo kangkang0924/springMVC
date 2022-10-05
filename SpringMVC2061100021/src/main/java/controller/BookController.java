@@ -53,4 +53,13 @@ public class BookController {
         mView.setViewName("login");
         return mView;
     }
+    @RequestMapping("/updateBook")
+    public String updateBook(Model model) {
+        BookInfo bookInfo = new BookInfo();
+        bookInfo.setName("大学英语");
+        bookInfo.setISBN("1234");
+        bookInfo.setWriter("小唐");
+        model.addAttribute("bookInfo", bookInfo);
+        return "bookInfo";
+    }
 }

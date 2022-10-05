@@ -49,7 +49,13 @@
                     <option value="人民邮电出版社">人民邮电出版社</option>
                 </select></td>
         </tr>
-
+        <tr>
+            <td><label for="nature">适用人群:</label></td>
+            <td><input id="nature" type="checkbox" name="nature" value="专科" checked />专科
+                <input type="checkbox" name="nature" value="本科">本科
+                <input type="checkbox" name="nature" value="硕士">硕士<br>
+            </td>
+        </tr>
 
         <tr>
             <td></td>
@@ -57,12 +63,6 @@
                 <input type="reset" value="重置" /> <br>
             </td>
         </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="提交">
-            </td>
-        </tr>
-
     </table>
 </form>
 </body>

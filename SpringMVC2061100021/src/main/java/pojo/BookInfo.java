@@ -16,6 +16,15 @@ public class BookInfo {
     private String total;
     private String pubName;
     private String bookshelf;
+    private String nature;
+
+    public String getNature() {
+        return nature;
+    }
+
+    public void setNature(String nature) {
+        this.nature = nature;
+    }
 
     public String getName() {
         return name;

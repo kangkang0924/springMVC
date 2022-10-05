@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("/Book")
+@SuppressWarnings("all")
 public class BookController {
     @PostMapping("/addBookInfo")
     public String addBook(BookInfo bookInfo, Model model) {

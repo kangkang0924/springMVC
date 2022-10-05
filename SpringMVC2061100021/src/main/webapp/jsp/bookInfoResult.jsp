@@ -23,44 +23,27 @@ hello!${msg}
         <td>${BookInfo.name}</td>
         <td></td>
     </tr>
-    <tr>
-        <td>图书类别:</td>
-        <td>${BookInfo.type}</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>作者:</td>
-        <td>${BookInfo.author}</td>
-        <td></td>
-    </tr>
+
     <tr>
         <td>价格:</td>
         <td>${BookInfo.price}</td>
         <td></td>
     </tr>
-    <tr>
-        <td>I S B N:</td>
-        <td>${BookInfo.ISBN}</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>现存量:</td>
-        <td>${BookInfo.newQuantity}</td>
-        <td></td>
-    </tr>
+
+
     <tr>
         <td>总库存:</td>
         <td>${BookInfo.total}</td>
         <td></td>
     </tr>
     <tr>
-        <td>出版社:</td>
-        <td>${BookInfo.pubName}</td>
+        <td>适用人群:</td>
+        <td>${BookInfo.nature}</td>
         <td></td>
     </tr>
     <tr>
-        <td>书架:</td>
-        <td>${BookInfo.bookshelf}</td>
+        <td>出版社:</td>
+        <td>${BookInfo.pubName}</td>
         <td></td>
     </tr>
 

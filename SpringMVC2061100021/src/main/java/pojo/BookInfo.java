@@ -2,6 +2,8 @@ package pojo;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @author 韩德康~
  * @version 1.0
@@ -21,5 +23,7 @@ public class BookInfo {
     private String bookshelf;
     private String nature;
 
+    private List<String> group;
+    private String hsp;
 
 }

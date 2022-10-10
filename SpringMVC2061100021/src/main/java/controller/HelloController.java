@@ -76,7 +76,7 @@ public class HelloController {
         ModelAndView mView = new ModelAndView();
         if ("2061100021".equals(userForm.getUsername()) && "123".equals(userForm.getPassword())) {
             mView.addObject("msg", "欢迎登录" + userForm.getUsername());
-            mView.setViewName("bookInfo");
+            mView.setViewName("redirect:/Book/updateBook");
             return mView;
         } else {
             mView.addObject("msg", "用户名或者密码错误");

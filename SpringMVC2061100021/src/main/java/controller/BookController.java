@@ -11,6 +11,7 @@ import pojo.BookInfo;
 import pojo.UserForm;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  * @author 韩德康~
@@ -55,11 +56,19 @@ public class BookController {
     }
     @RequestMapping("/updateBook")
     public String updateBook(Model model) {
+
         BookInfo bookInfo = new BookInfo();
         bookInfo.setName("大学英语");
         bookInfo.setISBN("1234");
         bookInfo.setWriter("小唐");
+        ArrayList<String> objects = new ArrayList<>();
+        objects.add("专科");
+        objects.add("本科");
+        objects.add("硕士");
+        bookInfo.setGroup(objects);
+        bookInfo.setHsp("有");
         model.addAttribute("bookInfo", bookInfo);
+
         return "bookInfo";
     }
 }

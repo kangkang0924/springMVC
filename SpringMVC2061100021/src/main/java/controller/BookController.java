@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import pojo.BookInfo;
+import pojo.BookType;
 import pojo.UserForm;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 韩德康~
@@ -61,12 +63,20 @@ public class BookController {
         bookInfo.setName("大学英语");
         bookInfo.setISBN("1234");
         bookInfo.setWriter("小唐");
-        ArrayList<String> objects = new ArrayList<>();
+        List<String> objects = new ArrayList<>();
         objects.add("专科");
         objects.add("本科");
         objects.add("硕士");
         bookInfo.setGroup(objects);
         bookInfo.setHsp("有");
+        bookInfo.setPub("3");
+        //设置图书类型数据列表
+        ArrayList<BookType> bookTypeList = new ArrayList<>();
+        bookTypeList.add(new BookType(1,"社科类"));
+        bookTypeList.add(new BookType(2,"文史类"));
+        bookTypeList.add(new BookType(3,"工具类"));
+        model.addAttribute("bookTypeList",bookTypeList);
+        bookInfo.setType(2);
         model.addAttribute("bookInfo", bookInfo);
 
         return "bookInfo";

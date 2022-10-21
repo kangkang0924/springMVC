@@ -72,6 +72,7 @@
     书名: <fm:input path="name"/><br/><br/>
     ISBN: <fm:input path="ISBN"/><br/><br/>
     作者: <fm:input path="writer"/><br/><br/>
+
     适用人群:<fm:checkbox path="group" value="专科" label="专科"/>&nbsp;&nbsp;
     <fm:checkbox path="group" value="本科" label="本科"/>&nbsp;&nbsp;
     <fm:checkbox path="group" value="硕士" label="硕士"/><br/><br/>

@@ -29,23 +29,18 @@ hello!${msg}
         <td>${BookInfo.price}</td>
         <td></td>
     </tr>
-
-
     <tr>
-        <td>总库存:</td>
-        <td>${BookInfo.total}</td>
+        <td>日期:</td>
+        <td>${BookInfo.pubDate}</td>
         <td></td>
     </tr>
+
     <tr>
         <td>适用人群:</td>
-        <td>${BookInfo.nature}</td>
+        <td>${BookInfo.group}</td>
         <td></td>
     </tr>
-    <tr>
-        <td>出版社:</td>
-        <td>${BookInfo.pub}</td>
-        <td></td>
-    </tr>
+
 
 </table>
 </body>

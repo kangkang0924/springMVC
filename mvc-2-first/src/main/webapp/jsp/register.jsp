@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<form action="${pageContext.request.contextPath}/hello/register">
+<form action="${pageContext.request.contextPath}/register">
     <table>
         <tr>
             <td>登录名:</td>

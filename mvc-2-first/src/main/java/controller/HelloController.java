@@ -1,12 +1,14 @@
 package controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pojo.BookInfo;
 import pojo.UserForm;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author 韩德康~
@@ -15,11 +17,12 @@ import pojo.UserForm;
  */
 @Controller
 @RequestMapping("/hello")
+@SessionAttributes("msg")
 public class HelloController {
     @GetMapping ("/login")
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("hdk", "这是@Controller实现登陆处理");
+        modelAndView.addObject("msg", "这是@Controller实现登陆处理");
         modelAndView.setViewName("login");
         return modelAndView;
     }
@@ -27,25 +30,55 @@ public class HelloController {
 //    public ModelAndView varifyLogin(String username, String password) {
 //        ModelAndView mView = new ModelAndView();
 //        if ("2061100021".equals(username) && "123".equals(password)) {
-//            mView.addObject("hdk", "欢迎登录");
+//            mView.addObject("msg", "欢迎登录");
 //            mView.setViewName("main");
 //            return mView;
 //        } else {
-//            mView.addObject("hdk", "用户名或者密码错误");
+//            mView.addObject("msg", "用户名或者密码错误");
 //            mView.setViewName("login");
 //            return mView;
 //        }
 //    }
+
+    @PostMapping("/addBookInfo")
+    public String addBook(BookInfo bookInfo, Model model, HttpSession httpSession, HttpServletRequest request) {
+        httpSession.getAttribute("msg");
+
+        System.out.println(httpSession.getAttribute("msg"));
+        model.addAttribute("BookInfo", bookInfo);
+        return "bookInfoResult";
+    }
+//    public ModelAndView addBookInfo(BookInfo bookInfo) {
+//        ModelAndView mView = new ModelAndView();
+//        mView.addObject("id", bookInfo.getId());
+//        mView.addObject("name", bookInfo.getName());
+//        mView.addObject("type", bookInfo.getType());
+//        mView.addObject("price", bookInfo.getPrice());
+//        mView.addObject("author", bookInfo.getAuthor());
+//        mView.addObject("ISBN", bookInfo.getISBN());
+//        mView.addObject("newQuantity", bookInfo.getNewQuantity());
+//        mView.addObject("inventory", bookInfo.getInventory());
+//        mView.addObject("press", bookInfo.getPress());
+//        mView.addObject("bookshelf", bookInfo.getBookshelf());
+//
+//        mView.setViewName("userInfoResult");
+//        return mView;
+//    }
+
+
+
+
+
     @GetMapping("/varifyLogin")
     public ModelAndView varifyLogin(UserForm userForm) {
 
         ModelAndView mView = new ModelAndView();
         if ("2061100021".equals(userForm.getUsername()) && "123".equals(userForm.getPassword())) {
-            mView.addObject("hdk", "欢迎登录");
-            mView.setViewName("main");
+            mView.addObject("msg", "欢迎登录" + userForm.getUsername());
+            mView.setViewName("redirect:/Book/updateBook");
             return mView;
         } else {
-            mView.addObject("hdk", "用户名或者密码错误");
+            mView.addObject("msg", "用户名或者密码错误");
             mView.setViewName("login");
             return mView;
         }
@@ -53,7 +86,7 @@ public class HelloController {
     @GetMapping("/varifyRegister")
     public ModelAndView varifyRegister() {
         ModelAndView mView = new ModelAndView();
-        mView.addObject("hdk", "欢迎注册");
+        mView.addObject("msg", "欢迎注册");
         mView.setViewName("login");
         return mView;
     }
@@ -67,7 +100,7 @@ public class HelloController {
     @RequestMapping("register")
     public ModelAndView register() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("hdk", "这是@Controller实现注册处理");
+        modelAndView.addObject("msg", "这是@Controller实现注册处理");
         modelAndView.setViewName("register");
         return modelAndView;
     }

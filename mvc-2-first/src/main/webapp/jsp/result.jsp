@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-    welcome,${hdk}
+    welcome,${msg}
 </body>
 </html>

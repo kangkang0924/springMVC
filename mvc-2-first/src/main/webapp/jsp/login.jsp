@@ -17,8 +17,8 @@
     密 码:<input type="password" name="password"><br>
 
     <input type="submit" value="登录">
-        已注册,请登录<a href="${pageContext.request.contextPath}/hello/login">登录</a>
-        未注册,请注册<a href="${pageContext.request.contextPath}/hello/register">注册</a>
+        已注册,请登录<a href="${pageContext.request.contextPath}/hello/varifyLogin">登录</a>
+        未注册,请注册<a href="${pageContext.request.contextPath}/register">注册</a>
 </form>
 </body>
 </html>

@@ -3,6 +3,7 @@ package pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -31,6 +32,7 @@ public class BookInfo {
 
     //出版社
     private String pub;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date pubDate;
 
     private List<String> group;

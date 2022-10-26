@@ -1,15 +1,20 @@
 package controller;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.DataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pojo.BookInfo;
 import pojo.BookType;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -53,6 +58,7 @@ public class BookController {
         mView.setViewName("login");
         return mView;
     }
+
     @RequestMapping("/updateBook")
     public String updateBook(Model model) {
 
@@ -69,13 +75,20 @@ public class BookController {
         bookInfo.setPub("3");
         //设置图书类型数据列表
         ArrayList<BookType> bookTypeList = new ArrayList<>();
-        bookTypeList.add(new BookType(1,"社科类"));
-        bookTypeList.add(new BookType(2,"文史类"));
-        bookTypeList.add(new BookType(3,"工具类"));
-        model.addAttribute("bookTypeList",bookTypeList);
+        bookTypeList.add(new BookType(1, "社科类"));
+        bookTypeList.add(new BookType(2, "文史类"));
+        bookTypeList.add(new BookType(3, "工具类"));
+        model.addAttribute("bookTypeList", bookTypeList);
         bookInfo.setType(2);
         model.addAttribute("bookInfo", bookInfo);
 
         return "bookInfo";
     }
+
+//    @InitBinder
+//    public void initBinder(DataBinder binder) {
+//        System.out.println("@@@@@@initBinder");
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+//    }
 }

@@ -35,7 +35,4 @@ public class StringToDateConverter implements Converter<String, Date> {
         }
         return parse;
     }
-
-
-
 }

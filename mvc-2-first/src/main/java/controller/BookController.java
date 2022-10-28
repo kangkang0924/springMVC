@@ -3,6 +3,7 @@ package controller;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pojo.BookInfo;
 import pojo.BookType;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,15 +26,21 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/Book")
-@SuppressWarnings("all")
+
 public class BookController {
     @PostMapping("/addBookInfo")
-    public String addBook(BookInfo bookInfo, Model model) {
+    public String addBook(@Valid BookInfo bookInfo, BindingResult result, Model model) {
         //从session中取数据
 
-        double price = (bookInfo.getPrice() * 0.8);
-        bookInfo.setPrice(price);
+        if (bookInfo.getPrice() != null) {
+            double price = (bookInfo.getPrice() * 0.8);
+            bookInfo.setPrice(price);
+        }
+        System.out.println(result.getErrorCount());
         model.addAttribute("BookInfo", bookInfo);
+        if (result.getErrorCount() > 0) {
+            return "bookInfo";
+        }
         return "forward:/jsp/bookInfoResult.jsp";
     }
 
@@ -64,6 +72,31 @@ public class BookController {
 
         BookInfo bookInfo = new BookInfo();
         bookInfo.setName("大学英语");
+        bookInfo.setISBN("1234");
+        bookInfo.setWriter("小唐");
+        List<String> objects = new ArrayList<>();
+        objects.add("专科");
+        objects.add("本科");
+        objects.add("硕士");
+        bookInfo.setGroup(objects);
+        bookInfo.setHsp("有");
+        bookInfo.setPub("3");
+        //设置图书类型数据列表
+        ArrayList<BookType> bookTypeList = new ArrayList<>();
+        bookTypeList.add(new BookType(1, "社科类"));
+        bookTypeList.add(new BookType(2, "文史类"));
+        bookTypeList.add(new BookType(3, "工具类"));
+        model.addAttribute("bookTypeList", bookTypeList);
+        bookInfo.setType(2);
+        model.addAttribute("bookInfo", bookInfo);
+
+        return "bookInfo";
+    }
+
+    @RequestMapping("/addBook")
+    public String addBook(Model model) {
+
+        BookInfo bookInfo = new BookInfo();
         bookInfo.setISBN("1234");
         bookInfo.setWriter("小唐");
         List<String> objects = new ArrayList<>();

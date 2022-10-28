@@ -13,6 +13,7 @@
 <a href="${pageContext.request.contextPath}/hello/login">登录</a><br/>
 <a href="${pageContext.request.contextPath}/hello/login2/zhangsan">REST取路径地址</a><br/>
 <a href="${pageContext.request.contextPath}/user/userUpdate">用户信息修改</a><br/>
-<a href="Book/updateBook">修改图书</a>
+<a href="Book/updateBook">修改图书</a><br/>
+<a href="${pageContext.request.contextPath}/Book/addBook">添加图书</a>
 </body>
 </html>

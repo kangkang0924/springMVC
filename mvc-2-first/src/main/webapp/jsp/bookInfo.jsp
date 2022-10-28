@@ -15,7 +15,7 @@
 
 
 <fm:form modelAttribute="bookInfo" action="${pageContext.request.contextPath}/Book/addBookInfo" method="post">
-    书名: <fm:input path="name"/><br/><br/>
+    书名: <fm:input path="name"/><fm:errors path="name"></fm:errors> <br/><br/>
     ISBN: <fm:input path="ISBN"/><br/><br/>
     作者: <fm:input path="writer"/><br/><br/>
     价格: <fm:input path="price"/><br/><br/>

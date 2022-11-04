@@ -15,10 +15,12 @@
 
 
 <fm:form modelAttribute="bookInfo" action="${pageContext.request.contextPath}/Book/addBookInfo" method="post">
-    书名: <fm:input path="name"/><fm:errors path="name"></fm:errors> <br/><br/>
-    ISBN: <fm:input path="ISBN"/><br/><br/>
-    作者: <fm:input path="writer"/><br/><br/>
-    价格: <fm:input path="price"/><br/><br/>
+    书名: <fm:input path="name"/><fm:errors style="color:red;" path="name"></fm:errors> <br/><br/>
+    ISBN: <fm:input path="ISBN"/><fm:errors style="color:red;" path="ISBN"></fm:errors><br/><br/>
+    作者: <fm:input path="writer"/><fm:errors style="color:red;" path="writer"></fm:errors><br/><br/>
+    价格: <fm:input path="price"/><fm:errors style="color:red;" path="price"></fm:errors><br/><br/>
+    电子邮箱: <fm:input path="email"/><fm:errors style="color:red;" path="email"></fm:errors><br/><br/>
+    电话: <fm:input path="phone"/><fm:errors style="color:red;" path="phone"></fm:errors><br/><br/>
     出版日期: <fm:input path="pubDate"/><br/><br/>
 
     适用人群:<fm:checkbox path="group" value="专科" label="专科"/>&nbsp;&nbsp;

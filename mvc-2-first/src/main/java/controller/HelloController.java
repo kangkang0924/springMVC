@@ -65,17 +65,13 @@ public class HelloController {
 //        return mView;
 //    }
 
-
-
-
-
     @GetMapping("/varifyLogin")
     public ModelAndView varifyLogin(UserForm userForm) {
 
         ModelAndView mView = new ModelAndView();
         if ("2061100021".equals(userForm.getUsername()) && "123".equals(userForm.getPassword())) {
             mView.addObject("msg", "欢迎登录" + userForm.getUsername());
-            mView.setViewName("redirect:/Book/updateBook");
+            mView.setViewName("redirect:/Book/addBook");
             return mView;
         } else {
             mView.addObject("msg", "用户名或者密码错误");

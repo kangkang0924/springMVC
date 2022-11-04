@@ -1,12 +1,11 @@
 package pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.Date;
 import java.util.List;
 
@@ -15,26 +14,32 @@ import java.util.List;
  * @version 1.0
  * @time 2022/09/21/10:52
  */
-
+@Data
 public class BookInfo {
 
     @NotBlank(message = "请输入书名")
     private String name;
+    @NotBlank(message = "请输入ISBN")
     private String ISBN;
+    @Length(max = 5,message = "作者最大长度为5")
     private String writer;
 
     private String id;
-
+    @Min(value = 1,message = "价格最少是1元")
     private Double price;
     private String newQuantity;
     private String total;
-
-    private String bookshelf;
-    private String nature;
-
+    @Email(message = "邮箱不正确")
+    private String email;
+    @Pattern(regexp = "^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$",message = "电话号不正确")
+    private String phone;
     //出版社
     private String pub;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private String bookshelf;
+    private String nature;
+
+
     private Date pubDate;
 
     private List<String> group;
@@ -42,135 +47,5 @@ public class BookInfo {
     private String hsp;
     private int type;
 
-    public BookInfo() {
-    }
 
-    public BookInfo(String name, String ISBN, String writer, String id, Double price, String newQuantity, String total, String bookshelf, String nature, String pub, Date pubDate, List<String> group, String hsp, int type) {
-        this.name = name;
-        this.ISBN = ISBN;
-        this.writer = writer;
-        this.id = id;
-        this.price = price;
-        this.newQuantity = newQuantity;
-        this.total = total;
-        this.bookshelf = bookshelf;
-        this.nature = nature;
-        this.pub = pub;
-        this.pubDate = pubDate;
-        this.group = group;
-        this.hsp = hsp;
-        this.type = type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
-    }
-
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getNewQuantity() {
-        return newQuantity;
-    }
-
-    public void setNewQuantity(String newQuantity) {
-        this.newQuantity = newQuantity;
-    }
-
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
-
-    public String getBookshelf() {
-        return bookshelf;
-    }
-
-    public void setBookshelf(String bookshelf) {
-        this.bookshelf = bookshelf;
-    }
-
-    public String getNature() {
-        return nature;
-    }
-
-    public void setNature(String nature) {
-        this.nature = nature;
-    }
-
-    public String getPub() {
-        return pub;
-    }
-
-    public void setPub(String pub) {
-        this.pub = pub;
-    }
-
-    public Date getPubDate() {
-        return pubDate;
-    }
-
-    public void setPubDate(Date pubDate) {
-        this.pubDate = pubDate;
-    }
-
-    public List<String> getGroup() {
-        return group;
-    }
-
-    public void setGroup(List<String> group) {
-        this.group = group;
-    }
-
-    public String getHsp() {
-        return hsp;
-    }
-
-    public void setHsp(String hsp) {
-        this.hsp = hsp;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
 }

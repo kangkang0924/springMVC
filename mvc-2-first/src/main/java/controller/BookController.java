@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pojo.BookInfo;
 import pojo.BookType;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,16 +27,21 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/Book")
-
 public class BookController {
     @PostMapping("/addBookInfo")
     public String addBook(@Valid BookInfo bookInfo, BindingResult result, Model model) {
         //从session中取数据
-
-        if (bookInfo.getPrice() != null) {
+        if (bookInfo.getPrice() != null && result.getErrorCount() == 0) {
             double price = (bookInfo.getPrice() * 0.8);
             bookInfo.setPrice(price);
         }
+//        if (bookInfo.getWriter().length() > 5) {
+//            return "bookInfo";
+//        }
+//        if (bookInfo.getPrice() >= 1) {
+//            return "bookInfo";
+//        }
+
         System.out.println(result.getErrorCount());
         model.addAttribute("BookInfo", bookInfo);
         if (result.getErrorCount() > 0) {
@@ -69,7 +75,6 @@ public class BookController {
 
     @RequestMapping("/updateBook")
     public String updateBook(Model model) {
-
         BookInfo bookInfo = new BookInfo();
         bookInfo.setName("大学英语");
         bookInfo.setISBN("1234");
@@ -89,13 +94,11 @@ public class BookController {
         model.addAttribute("bookTypeList", bookTypeList);
         bookInfo.setType(2);
         model.addAttribute("bookInfo", bookInfo);
-
         return "bookInfo";
     }
 
     @RequestMapping("/addBook")
     public String addBook(Model model) {
-
         BookInfo bookInfo = new BookInfo();
         bookInfo.setISBN("1234");
         bookInfo.setWriter("小唐");
@@ -114,14 +117,13 @@ public class BookController {
         model.addAttribute("bookTypeList", bookTypeList);
         bookInfo.setType(2);
         model.addAttribute("bookInfo", bookInfo);
-
         return "bookInfo";
     }
 
-//    @InitBinder
-//    public void initBinder(DataBinder binder) {
-//        System.out.println("@@@@@@initBinder");
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-//    }
+    @InitBinder
+    public void initBinder(DataBinder binder) {
+        System.out.println("@@@@@@initBinder");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
 }

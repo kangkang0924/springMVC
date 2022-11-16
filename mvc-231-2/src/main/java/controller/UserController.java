@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import pojo.BookInfo;
 import pojo.BookType;
 import pojo.UserForm;
@@ -41,7 +42,6 @@ public class UserController {
     }
 
 
-
     @PostMapping("/UserRegister")
     public String addBook(@Valid UserForm userForm, BindingResult result, Model model) {
         System.out.println(result.getErrorCount());
@@ -49,9 +49,11 @@ public class UserController {
         if (result.getErrorCount() > 0) {
             return "userRegister";
         }
+
         //设置图书类型数据列表
         return "RegisterResult";
     }
+
     @RequestMapping("/Register")
     public String register(Model model) {
         UserForm userForm = new UserForm();
@@ -60,10 +62,6 @@ public class UserController {
         userForm.setAge(20);
         userForm.setPhone("179999999");
         userForm.setGender("男");
-        List<String> objects = new ArrayList<>();
-        objects.add("学Java");
-        objects.add("打豆豆");
-        userForm.setHobby(objects);
         //设置图书类型数据列表
         userForm.setEducation("本科");
         model.addAttribute("userForm", userForm);

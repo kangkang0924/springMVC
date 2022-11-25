@@ -1,6 +1,7 @@
 package controller;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class UserController {
 		model.addAttribute("userFrom", userFrom);
 		System.out.println(bindingResult.getErrorCount());
 		Map<Object, String> objectStringHashMap = new HashMap<>();
-		Cookie cookie = new Cookie("hdk", "我是你爹");
+		Cookie cookie = new Cookie("hdk", "test");
 		cookie.setMaxAge(60);
 
 		if (bindingResult.getErrorCount() > 0){

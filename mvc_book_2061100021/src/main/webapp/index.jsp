@@ -21,9 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   <a href="jsp/register.jsp">注册页面</a><br>
-   <a href="registerBefore">注册页面t</a><br>
-   <a href="updateUser">修改用户页面</a><br>
-   <a href="login">登录</a><br>
+    已注册用户，请<a href="hello/login">登录</a><br>
+    未注册用户，请 <a href="hello/register">注册</a><br>
+    <a href="Book/updateBook">修改图书</a>
   </body>
 </html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd">	
+	<!-- 注册自定义类型转换器 -->	
+	<!--<mvc:annotation-driven conversion-service="conversionService"/>
+	  <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+	  <property name="converters">
+		<list>
+		   <bean class="converter.StringToDateConverter" p:datePattern="yyyy-MM-dd"></bean>    
+		</list>
+	   </property>
+	</bean> -->
+	<!-- 使用@InitBinder注解，必须使用注解驱动 -->
+	<mvc:annotation-driven/>
+	<!-- SessionLocaleResolver配置 -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+	<!-- 国际化操作拦截器 -->
+	<mvc:interceptors>
+	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />	
+	</mvc:interceptors>
+	<!-- 配置资源文件 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<!-- 国际化资源文件名 -->
+		<property name="basename" value="message"/>
+	</bean>
+	<!-- 配置自动扫描的基包 -->
+	<context:component-scan base-package="controller"></context:component-scan>
+	<!-- 配置视图解析器，将控制器方法返回的逻辑视图解析为物理视图 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 前缀 -->
+		<property name="prefix" value="/jsp/"></property>
+		<!-- 后缀 -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>

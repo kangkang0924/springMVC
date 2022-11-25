@@ -9,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'bookResult.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,12 +19,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
-  
+
   <body>
-   <a href="jsp/register.jsp">注册页面</a><br>
-   <a href="registerBefore">注册页面t</a><br>
-   <a href="updateUser">修改用户页面</a><br>
-   <a href="login">登录</a><br>
+    当前登录用户：${sessionScope.msg}<br><br>
+    图书名称：${requestScope.bookInfo.name} <br><br>
+   isbn：${bookInfo.ISBN} <br><br>
+     作者：${bookInfo.writer} <br><br>
+     适用人群：${bookInfo.group} <br><br> 
+      库存：${bookInfo.has} <br><br>
+     出版社：${bookInfo.pub} <br><br> 
+     图书类型：${bookInfo.type} <br><br> 
+     价格：${bookInfo.price} <br><br>
+     出版日期：${bookInfo.pubDate} <br><br>
   </body>
 </html>
